@@ -207,6 +207,33 @@ You must then also require such extenal file back in your main geokit configurat
 	  end
 	end
 
+
+## CACHING SUPPORT
+
+From now on we have an caching support for MultiGeocoder.
+It is designed for ActiveRecord.
+It prefers google over other geocoders (best support for Europe).
+It requires rspec and rspec-rails to operate.
+
+First You need to generate some code:
+
+./script/generate geokit_cached
+
+One change to active record model storing the cache (generate does not generate this):
+
+class CachedLocation < ActiveRecord::Base
+  include Geokit::Cached::Model
+end
+
+You can enable it in Your models:
+
+class Profile < ActiveRecord::Base
+  include Geokit::Cached::Geocodable
+  CACHE_LOCATIONS = true
+  before_save :geocode_address_cached
+end
+
+
 ## GOOGLE GROUP
 
 Follow the Google Group for updates and discussion on Geokit: http://groups.google.com/group/geokit 
