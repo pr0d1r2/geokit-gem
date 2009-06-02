@@ -1,2 +1,2 @@
-require 'cached/model'
-require 'cached/geocodable'
+require 'geokit/cached/model'
+require 'geokit/cached/geocodable'

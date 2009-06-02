@@ -4,7 +4,7 @@ require 'yaml'
 require 'timeout'
 require 'logger'
 
-require 'geocoders/cached_multi_geocoder'
+require 'geokit/geocoders/cached_multi_geocoder'
 
 module Geokit
   module Inflector
