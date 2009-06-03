@@ -217,22 +217,25 @@ It requires rspec and rspec-rails to operate.
 
 First You need to generate some code:
 
-./script/generate geokit_cached
+	./script/generate geokit_cached
 
 One change to active record model storing the cache (generate does not generate this):
 
-class CachedLocation < ActiveRecord::Base
-  include Geokit::Cached::Model
-end
+	class CachedLocation < ActiveRecord::Base
+	  include Geokit::Cached::Model
+	end
 
 You can enable it in Your models:
 
-class Profile < ActiveRecord::Base
-  include Geokit::Cached::Geocodable
-  CACHE_LOCATIONS = true
-  before_save :geocode_address_cached
-end
+	class Profile < ActiveRecord::Base
+	  include Geokit::Cached::Geocodable
+	  CACHE_LOCATIONS = true
+	  before_save :geocode_address_cached
+	end
 
+Or You can use it by hand:
+
+	@geo = Geokit::Geocoders::CachedMultiGeocoder.geocode("address, country")
 
 ## GOOGLE GROUP
 
