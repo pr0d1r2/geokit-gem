@@ -2,6 +2,12 @@ module Geokit
   module Cached
     module Model
 
+      def self.included(base)
+        base.class_eval do
+          validates_presence_of :address
+        end
+      end
+
       def cache!(attributes)
         self.attributes = attributes
         save if new_record? || changed?

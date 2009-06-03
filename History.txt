@@ -1,3 +1,7 @@
+=== 1.3.2.6 / 2009-06-03
+* Added possibility to cache lat and lng stored in another tables (useful when migrating)
+* Validates presence of :address in CachedLocation model
+
 === 1.3.2.5 / 2009-06-03
 * Fixed failed geocode request treaten as successful
 
