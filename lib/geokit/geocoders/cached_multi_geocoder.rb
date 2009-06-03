@@ -2,7 +2,7 @@ module Geokit
   module Geocoders
     class CachedMultiGeocoder
 
-     class << self
+      class << self
 
         def cached_location(location)
           CachedLocation.find_by_address(location) || CachedLocation.new(:address => location)

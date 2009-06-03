@@ -17,7 +17,7 @@ module Geokit
       end
 
       def geocode_address_cached
-        multi_geocoder.geocode(complete_address)
+        @geo = multi_geocoder.geocode(complete_address)
         self.lat, self.lng, self.provider = @geo.lat, @geo.lng, @geo.provider if @geo.success
       end
 

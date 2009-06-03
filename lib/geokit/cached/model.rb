@@ -25,7 +25,7 @@ module Geokit
 
       def fake_geoloc
         geoloc = Geokit::GeoLoc.new
-        geoloc.lat, geoloc.lng, geoloc.provider, geoloc.success = lat, lng, provider, true
+        geoloc.lat, geoloc.lng, geoloc.provider, geoloc.success = lat, lng, provider, success?
         geoloc
       end
 
@@ -51,6 +51,10 @@ module Geokit
 
       def geocoding_occured?
         !@geo.nil?
+      end
+
+      def success?
+        !!(lat and lng)
       end
 
     end
