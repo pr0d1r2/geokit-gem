@@ -5,6 +5,10 @@ module Geokit
       def self.included(base)
         base.class_eval do
           validates_presence_of :address
+          validates_presence_of :lat
+          validates_presence_of :lng
+          validates_numericality_of :lat
+          validates_numericality_of :lng
         end
       end
 
