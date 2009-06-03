@@ -1,3 +1,6 @@
+=== 1.3.2.4 / 2009-06-03
+* Changed naming of one method to be precise
+
 === 1.3.2.3 / 2009-06-03
 * Description change
 

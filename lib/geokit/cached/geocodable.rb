@@ -8,7 +8,7 @@ module Geokit
         end
       end
 
-      def geocoder
+      def multi_geocoder
         if cache_locations?
           Geokit::Geocoders::CachedMultiGeocoder
         else
@@ -17,7 +17,7 @@ module Geokit
       end
 
       def geocode_address_cached
-        @geocoder.geocode(complete_address)
+        multi_geocoder.geocode(complete_address)
         self.lat, self.lng, self.provider = @geo.lat, @geo.lng, @geo.provider if @geo.success
       end
 
