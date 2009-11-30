@@ -19,7 +19,7 @@ module Geokit
 
       def update!
         if !by_google? && geo.success
-          self.lat, self.lng, self.provider = geo.lat, geo.lng, geo.provider
+          self.lat, self.lng, self.provider, self.city = geo.lat, geo.lng, geo.provider, geo.city
           save if changed?
         end
       end
@@ -35,7 +35,7 @@ module Geokit
 
       def fake_geoloc
         geoloc = Geokit::GeoLoc.new
-        geoloc.lat, geoloc.lng, geoloc.provider, geoloc.success = lat, lng, provider, success?
+        geoloc.lat, geoloc.lng, geoloc.provider, geoloc.city, geoloc.success = lat, lng, provider, city, success?
         geoloc
       end
 
@@ -56,7 +56,7 @@ module Geokit
       end
 
       def changed?
-        lat_changed? || lng_changed? || changed_to_google?
+        lat_changed? || lng_changed? || changed_to_google? || city_changed?
       end
 
       def geocoding_occured?
