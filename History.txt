@@ -1,18 +1,3 @@
-=== 1.5.0 / 2009-09-21
-* fixed jruby compatibility (thanks manalang)
-* added country name to Google reverse geocoder (thanks joahking)
-* added  DependentLocalityName as district, and SubAdministrativeAreaName as province (google geocoder only)
-* Google geocoder throws an error if you exceed geocoding rates (thanks drogus)
-
-=== 1.4.1 / 2009-06-15
-* Fixed Ruby 1.9.1 compat and load order (thanks Niels Ganser)
-* Merged upstream master (git://github.com/andre/geokit-gem.git)
-
-=== 1.4.0 / 2009-05-27
-* Added country code/viewport biasing to GoogleGeocoder. Added Bounds#to_span method
-* Added suggested_bounds (Geokit::Bounds) property to GeoLoc. (Google geocoder only)
-* Added LatLng#reverse_geocode convenience method (thanks Tisho Georgiev for all three)
-
 === 1.3.2.7 / 2009-06-03
 * Added more strict requirements for model
 

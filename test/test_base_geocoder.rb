@@ -29,14 +29,13 @@ class BaseGeocoderTest < Test::Unit::TestCase #:nodoc: all
     @full_address = '100 Spear St, San Francisco, CA, 94105-1522, US'   
     @full_address_short_zip = '100 Spear St, San Francisco, CA, 94105, US' 
     
-    @latlng = Geokit::LatLng.new(37.7742, -122.417068)
-    @success = Geokit::GeoLoc.new({:city=>"SAN FRANCISCO", :state=>"CA", :country_code=>"US", :lat=>@latlng.lat, :lng=>@latlng.lng})
+    @success = Geokit::GeoLoc.new({:city=>"SAN FRANCISCO", :state=>"CA", :country_code=>"US", :lat=>37.7742, :lng=>-122.417068})
     @success.success = true    
   end  
   
   def test_timeout_call_web_service
     url = "http://www.anything.com"
-    Geokit::Geocoders::request_timeout = 1
+    Geokit::Geocoders::timeout = 1
     assert_nil Geokit::Geocoders::TestGeocoder.call_geocoder_service(url)    
   end
   
