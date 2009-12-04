@@ -14,12 +14,13 @@ module Geokit
 
       def cache!(attributes)
         self.attributes = attributes
+        self.city = convert_to_utf8(self.city)
         save if new_record? || changed?
       end
 
       def update!
         if !by_google? && geo.success
-          self.lat, self.lng, self.provider, self.city = geo.lat, geo.lng, geo.provider, geo.city
+          self.lat, self.lng, self.provider, self.city = geo.lat, geo.lng, geo.provider, convert_to_utf8(geo.city)
           save if changed?
         end
       end
@@ -65,6 +66,15 @@ module Geokit
 
       def success?
         !!(lat and lng)
+      end
+
+      def convert_to_utf8(str)
+        begin
+          Iconv.new('UTF-8', 'UTF-8').iconv(str)
+        rescue Iconv::Failure => iconv_exception
+          Iconv.new('UTF-8', 'ISO-8859-1').iconv(str)
+          iconv_exception.success
+        end
       end
 
     end
