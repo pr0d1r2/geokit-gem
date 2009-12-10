@@ -45,7 +45,7 @@ module Geokit
       end
 
       def geoloc
-        successful_geoloc || fake_geoloc
+        fake_geoloc
       end
 
       def by_google?
@@ -73,7 +73,6 @@ module Geokit
           Iconv.new('UTF-8', 'UTF-8').iconv(str)
         rescue Iconv::Failure => iconv_exception
           Iconv.new('UTF-8', 'ISO-8859-1').iconv(str)
-          iconv_exception.success
         end
       end
 
