@@ -1,3 +1,6 @@
+=== 1.3.2.10 /2009-12-10
+* Merge changes from staszek/geokit-gem (Turned on reading from cached location model for no-google providers)
+
 === 1.3.2.9 / 2009-06-03
 * Merge changes from staszek/geokit-gem
 * remove unnecessary file that came from mentioned upstream
